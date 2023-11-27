@@ -35,6 +35,7 @@ class _MusicUIState extends State<MusicUI> {
           currentIndex: index,
           //elevation: 0.0,
           items: const [
+
             BottomNavigationBarItem(
               backgroundColor: Colors.black,
               icon: Icon(Icons.home),

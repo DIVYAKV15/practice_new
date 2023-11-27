@@ -29,7 +29,7 @@ class LibraryuI extends StatelessWidget {
             indicatorColor: Colors.transparent,
             tabs: [
               ListTile(
-                tileColor: Colors.blueGrey,
+                tileColor: Colors.black,
                 leading: const Text(
                   "Search...",
                   style: TextStyle(color: Colors.pink),
@@ -51,7 +51,7 @@ class LibraryuI extends StatelessWidget {
             List.generate(
               8,
               (index) => Container(
-                margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                margin: const EdgeInsets.fromLTRB(10, 30, 10, 0),
 
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),

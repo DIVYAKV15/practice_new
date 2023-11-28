@@ -17,7 +17,7 @@ class MiCard extends StatelessWidget
         children: [
           CircleAvatar(radius:50.0,
               //backgroundColor: Colors.blue,
-               backgroundImage:AssetImage("images/dhivi.jpg"),),
+               backgroundImage:AssetImage("assets/images/dhivi.jpg"),),
           Text("Dhivya",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,),),
           Text("Flutter Developer",style: TextStyle(fontSize: 20,),),
 

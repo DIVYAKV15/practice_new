@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
+void main()
+{
+  runApp(MaterialApp(home: LibraryuIEx(),));
+}
 
-class LibraryuI extends StatelessWidget {
+class LibraryuIEx extends StatefulWidget {
+  @override
+  State<LibraryuIEx> createState() => _LibraryuIExState();
+}
+
+class _LibraryuIExState extends State<LibraryuIEx> {
+  int index = 0;
   var images = [
     "assets/images/images1.jpg",
     "assets/images/images2.jpg",
@@ -11,12 +21,43 @@ class LibraryuI extends StatelessWidget {
     "assets/images/image7.jpg",
     "assets/images/images8.jpg"
   ];
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return DefaultTabController(
       length: 1,
       child: Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+          onTap: (TapIndex) {
+            setState(() {
+              index = TapIndex;
+            });
+          },
+          currentIndex: index,
+          //elevation: 0.0,
+          items: const [
+
+            BottomNavigationBarItem(
+              backgroundColor: Colors.black,
+              icon: Icon(Icons.home),
+              label: "Home",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: "Search",
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.music_note), label: "Playlists"),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.more_horiz_rounded),
+              label: "Settings",
+            ),
+          ],
+          selectedItemColor: Colors.amber,
+          selectedLabelStyle:const TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 20, color: Colors.amber),
+        ),
         backgroundColor: Colors.black,
         appBar: AppBar(
           backgroundColor: Colors.black,
@@ -51,27 +92,13 @@ class LibraryuI extends StatelessWidget {
             List.generate(
               8,
               (index) => Container(
-
                 margin: const EdgeInsets.fromLTRB(10, 30, 10, 0),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),color: Colors.blue,
-                  image: DecorationImage(image: AssetImage(images[index]),fit: BoxFit.fill),
+                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.blue,
+                  image: DecorationImage(
+                      image: AssetImage(images[index]), fit: BoxFit.fill),
                 ),
-                // child: Image(
-                //   image: AssetImage("assets/images/images1.jpg"),
-                //   fit: BoxFit.fill,
-                // ),
-                // color: Colors.blue,
-                // child: const Column(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     Text("Top 50 music"),
-                //     Divider(
-                //       thickness: 10.0,
-                //     ),
-                //     Text("Global"),
-                //   ],
-                // ),
               ),
             ),
           ),

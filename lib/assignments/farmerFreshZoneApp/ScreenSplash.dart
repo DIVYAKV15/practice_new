@@ -21,7 +21,7 @@ class _ScreenSplashState extends State<ScreenSplash> {
   }
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return const Scaffold(backgroundColor: Colors.green,
       body: Center(
         child: Image(image: AssetImage("assets/images/farmerFreshzone.png"),),
       ),

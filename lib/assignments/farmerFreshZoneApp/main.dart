@@ -9,6 +9,6 @@ class MyFarmerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return MaterialApp(home: ScreenSplash());
+    return MaterialApp(home: ScreenSplash(),theme: ThemeData(primarySwatch: Colors.green),);
   }
 }

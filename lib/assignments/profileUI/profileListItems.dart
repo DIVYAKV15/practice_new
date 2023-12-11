@@ -48,3 +48,39 @@ class ProfileListItem extends StatelessWidget {
     );
   }
 }
+class ProfileListItems extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: ListView(
+        children: <Widget>[
+          ProfileListItem(
+            icon: Icons.privacy_tip_outlined,
+            text: 'Privacy',
+          ),
+          ProfileListItem(
+            icon: Icons.history,
+            text: 'Purchase History',
+          ),
+          ProfileListItem(
+            icon: Icons.help,
+            text: 'Help & Support',
+          ),
+          ProfileListItem(
+            icon: Icons.settings,
+            text: 'Settings',
+          ),
+          ProfileListItem(
+            icon:Icons.person_add_alt,
+            text: 'Invite a Friend',
+          ),
+          ProfileListItem(
+            icon: Icons.logout,
+            text: 'Logout',
+            hasNavigation: false,
+          ),
+        ],
+      ),
+    );
+  }
+}

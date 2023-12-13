@@ -25,7 +25,9 @@ class Profile extends StatelessWidget {
                 color: Colors.black)
           ],
         ),
-        body: Container(margin:EdgeInsets.all(10) ,
+        body: Container(
+          margin: const EdgeInsets.all(10),
+
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -34,8 +36,8 @@ class Profile extends StatelessWidget {
                   backgroundImage: AssetImage("assets/images/TaylorSwift.jpg"),
                   maxRadius: 50,
                 ),
-                const SizedBox(
-                  height: 35,
+                SizedBox(
+                  height: 20,
                 ),
                 const Wrap(
                   spacing: 30,
@@ -63,8 +65,8 @@ class Profile extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 25,
+                SizedBox(
+                  height: 20,
                 ),
                 Text("Dhivya Kv",
                     style: GoogleFonts.racingSansOne(fontSize: 35)),
@@ -72,61 +74,144 @@ class Profile extends StatelessWidget {
                   "@webrror",
                   style: TextStyle(fontSize: 20),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 20,
                 ),
                 const Text(
                   "Mobile App Developer",
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(
-                  height: 60,
+                SizedBox(
+                  height: 15,
                 ),
                 const Expanded(
                   child: SingleChildScrollView(
-                    child: Column(children: [
-                        ListTile(tileColor: Colors.grey,
-                          shape: StadiumBorder(side:BorderSide(width:2,style:  BorderStyle.solid), ),
-                          leading: Icon(Icons.privacy_tip_outlined,size:30,color: Colors.black, ),
-                          title: Text("Profile",style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
+                    child: Column(
+                      children: [
+                        ListTile(
+                          tileColor: Colors.grey,
+                          shape: StadiumBorder(
+                            side:
+                                BorderSide(width: 2, style: BorderStyle.solid),
+                          ),
+
+                          leading: Icon(
+                            Icons.privacy_tip_outlined,
+                            size: 30,
+                            color: Colors.black,
+                          ),
+                          title: Text(
+                            "Profile",
+                            style: TextStyle(
+                                fontSize: 25, fontWeight: FontWeight.bold),
+                          ),
                           trailing: Icon(Icons.arrow_forward_ios),
                         ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      ListTile(tileColor: Colors.grey,
-                        shape: StadiumBorder(side:BorderSide(width:2,style:  BorderStyle.solid),),
-                        leading: Icon(Icons.history,size:30,color: Colors.black,),
-                        title: Text("Purchase History",style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
-                        trailing: Icon(Icons.arrow_forward_ios),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      ListTile(
-                        shape: StadiumBorder(side:BorderSide(width:2,style:  BorderStyle.solid), ),tileColor: Colors.grey,
-                        leading: Icon(Icons.help,size:30,color: Colors.black,),
-                        title: Text("Help & Support",style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
-                        trailing: Icon(Icons.arrow_forward_ios),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      ListTile(tileColor: Colors.grey,
-                        shape: StadiumBorder(side:BorderSide(width:2,style:  BorderStyle.solid),),
-                        leading: Icon(Icons.settings,size:30,color: Colors.black,),
-                        title: Text("Settings",style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
-                        trailing: Icon(Icons.arrow_forward_ios),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      ListTile(tileColor: Colors.grey,
-                        shape: StadiumBorder(side:BorderSide(width:2,style:  BorderStyle.solid),),
-                        leading: Icon(Icons.logout,size:30,color: Colors.black,),
-                        title: Text("Logout",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
-                        trailing: Icon(Icons.arrow_forward_ios),
-                      ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        ListTile(
+                          tileColor: Colors.grey,
+                          shape: StadiumBorder(
+                            side:
+                                BorderSide(width: 2, style: BorderStyle.solid),
+                          ),
+                          leading: Icon(
+                            Icons.history,
+                            size: 30,
+                            color: Colors.black,
+                          ),
+                          title: Text(
+                            "Purchase History",
+                            style: TextStyle(
+                                fontSize: 25, fontWeight: FontWeight.bold),
+                          ),
+                          trailing: Icon(Icons.arrow_forward_ios),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        ListTile(
+                          shape: StadiumBorder(
+                            side:
+                                BorderSide(width: 2, style: BorderStyle.solid),
+                          ),
+                          tileColor: Colors.grey,
+                          leading: Icon(
+                            Icons.help,
+                            size: 30,
+                            color: Colors.black,
+                          ),
+                          title: Text(
+                            "Help & Support",
+                            style: TextStyle(
+                                fontSize: 25, fontWeight: FontWeight.bold),
+                          ),
+                          trailing: Icon(Icons.arrow_forward_ios),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        ListTile(
+                          tileColor: Colors.grey,
+                          shape: StadiumBorder(
+                            side:
+                                BorderSide(width: 2, style: BorderStyle.solid),
+                          ),
+                          leading: Icon(
+                            Icons.settings,
+                            size: 30,
+                            color: Colors.black,
+                          ),
+                          title: Text(
+                            "Settings",
+                            style: TextStyle(
+                                fontSize: 25, fontWeight: FontWeight.bold),
+                          ),
+                          trailing: Icon(Icons.arrow_forward_ios),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        ListTile(
+                          tileColor: Colors.grey,
+                          shape: StadiumBorder(
+                            side:
+                                BorderSide(width: 2, style: BorderStyle.solid),
+                          ),
+                          leading: Icon(
+                            Icons.person_add_alt,
+                            size: 30,
+                            color: Colors.black,
+                          ),
+                          title: Text(
+                            "Invite a friend",
+                            style: TextStyle(
+                                fontSize: 25, fontWeight: FontWeight.bold),
+                          ),
+                          trailing: Icon(Icons.arrow_forward_ios),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        ListTile(
+                          tileColor: Colors.grey,
+                          shape: StadiumBorder(
+                            side:
+                                BorderSide(width: 2, style: BorderStyle.solid),
+                          ),
+                          leading: Icon(
+                            Icons.logout,
+                            size: 30,
+                            color: Colors.black,
+                          ),
+                          title: Text(
+                            "Logout",
+                            style: TextStyle(
+                                fontSize: 25, fontWeight: FontWeight.bold),
+                          ),
+                          trailing: Icon(Icons.arrow_forward_ios),
+                        ),
                       ],
                     ),
                   ),

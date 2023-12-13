@@ -14,7 +14,7 @@ class SignUp extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading: Icon(
+        leading: const Icon(
           Icons.arrow_back_ios,
           color: Colors.black,
         ),
@@ -37,8 +37,8 @@ class SignUp extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
+            const Padding(
+              padding: EdgeInsets.all(12.0),
               child: TextField(
                 decoration: InputDecoration(
                   labelText: "EMail",
@@ -46,8 +46,8 @@ class SignUp extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
+            const Padding(
+              padding: EdgeInsets.all(12.0),
               child: TextField(
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -59,8 +59,8 @@ class SignUp extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
+            const Padding(
+              padding: EdgeInsets.all(12.0),
               child: TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
@@ -70,13 +70,13 @@ class SignUp extends StatelessWidget {
             ),
             MaterialButton(
                 color: Colors.red,
-                shape: StadiumBorder(),
-                child: Text("sign Up"),
+                shape: const StadiumBorder(),
+                child: const Text("sign Up"),
                 onPressed: () {}),
             TextButton(
               onPressed: () {},
               child: RichText(
-                text: TextSpan(
+                text: const TextSpan(
                   style: TextStyle(
                     color: Colors.black,
                   ),

@@ -35,6 +35,8 @@ dependencies:
   custom_pop_up_menu: ^1.2.4
   flutter_staggered_animations: ^1.1.1
   carousel_slider: ^4.2.1
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
 
 
 

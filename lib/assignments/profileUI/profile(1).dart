@@ -36,7 +36,7 @@ class Profile extends StatelessWidget {
                   backgroundImage: AssetImage("assets/images/TaylorSwift.jpg"),
                   maxRadius: 50,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 const Wrap(
@@ -65,7 +65,7 @@ class Profile extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Text("Dhivya Kv",
@@ -74,14 +74,14 @@ class Profile extends StatelessWidget {
                   "@webrror",
                   style: TextStyle(fontSize: 20),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 const Text(
                   "Mobile App Developer",
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 const Expanded(

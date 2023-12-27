@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: FlatExample(),
-  ));
-}
+
 
 class FlatExample extends StatelessWidget {
   //const ({super.key});

@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:practice/assignments/farmerFreshZoneApp/ItemsPage.dart';
+import 'package:practice/assignments/farmerFreshZoneApp/view/ItemsPage.dart';
 
 class ScreenSplash extends StatefulWidget {
   const ScreenSplash({super.key});

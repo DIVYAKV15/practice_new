@@ -14,16 +14,23 @@ class _ScreenSplashState extends State<ScreenSplash> {
   @override
   void initState() {
     // TODO: implement initState
-    Timer(Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>ItemsPages()));
+    Timer(const Duration(seconds: 3), () {
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const ItemsPages()));
     });
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(backgroundColor: Colors.green,
+    return const Scaffold(
+      backgroundColor: Colors.green,
       body: Center(
-        child: Image(image: AssetImage("assets/images/farmerFreshzone.png"),),
+        child: Image(
+          image: AssetImage(
+            "assets/images/farmerFreshzone.png",
+          ),height: 100,width: 50,
+        ),
       ),
     );
   }

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:practice/assignments/farmerFreshZoneApp/model/data_page.dart';
 
-void main() {
-  runApp(const MaterialApp(home: CategoryPage()));
-}
+
 
 class CategoryPage extends StatelessWidget {
   const CategoryPage({super.key});

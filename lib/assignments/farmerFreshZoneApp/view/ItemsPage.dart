@@ -5,6 +5,7 @@ import 'package:practice/assignments/farmerFreshZoneApp/widgets/policy_widget.da
 import 'package:practice/assignments/farmerFreshZoneApp/widgets/slider_page.dart';
 
 import '../model/data_page.dart';
+import '../widgets/know_farmer_image.dart';
 
 class ItemsPages extends StatelessWidget {
   const ItemsPages({super.key});
@@ -110,16 +111,21 @@ class ItemsPages extends StatelessWidget {
                 height: 20,
               ),
             ),
-            SliverGrid.count(childAspectRatio: 2.1/3,mainAxisSpacing: 10,crossAxisSpacing: 10,
+            SliverGrid.count(
+              childAspectRatio: 2.1 / 3,
+              mainAxisSpacing: 5,
+              crossAxisSpacing: 5,
               crossAxisCount: 3,
               children: category
                   .map((e) => ClipRRect(
                         borderRadius: const BorderRadius.all(
                           Radius.circular(20),
                         ),
-                        child: Container(margin: EdgeInsets.only(left: 10,right: 10),
+                        child: Container(
+                          margin: const EdgeInsets.only(left: 10, right: 10),
                           height: 150,
-                          decoration: const BoxDecoration(color: Color(0x62FFFFFF)),
+                          decoration:
+                          const BoxDecoration(color: Color(0x62FFFFFF)),
                           child: Column(
                             children: [
                               Container(
@@ -152,8 +158,27 @@ class ItemsPages extends StatelessWidget {
                             ],
                           ),
                         ),
-                      ))
+                      ),)
                   .toList(),
+            ),
+            SliverToBoxAdapter(
+                child: Divider(
+              color: Colors.grey[400],
+              thickness: 5,
+            )),
+            const SliverToBoxAdapter(
+              child: know_your_farmer(),
+            ),
+            const SliverToBoxAdapter(
+              child: SizedBox(
+                height: 20,
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: Text(
+                "Best Selling Products ",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
             ),
           ],
         ),
@@ -161,6 +186,7 @@ class ItemsPages extends StatelessWidget {
     );
   }
 }
+
 
 // ListTile(
 // leading: Icon(Icons.location_on),

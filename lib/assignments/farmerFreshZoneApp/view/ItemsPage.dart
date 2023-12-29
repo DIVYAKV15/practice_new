@@ -5,6 +5,7 @@ import 'package:practice/assignments/farmerFreshZoneApp/widgets/image_refracting
 //import 'package:practice/assignments/farmerFreshZoneApp/widgets/category_page.dart';
 import 'package:practice/assignments/farmerFreshZoneApp/widgets/listview_buttons.dart';
 import 'package:practice/assignments/farmerFreshZoneApp/widgets/policy_widget.dart';
+import 'package:practice/assignments/farmerFreshZoneApp/widgets/review.dart';
 import 'package:practice/assignments/farmerFreshZoneApp/widgets/slider_page.dart';
 
 import '../model/data_page.dart';
@@ -17,7 +18,8 @@ class ItemsPages extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       //backgroundColor: Colors.white,
-      body: ColoredSafeArea(color: Colors.green,
+      body: ColoredSafeArea(
+        color: Colors.green,
         child: CustomScrollView(
           scrollDirection: Axis.vertical,
           slivers: [
@@ -121,45 +123,48 @@ class ItemsPages extends StatelessWidget {
               crossAxisCount: 3,
               children: category
                   .map(
-                    (e) => ClipRRect(
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(20),
-                      ),
-                      child: Container(
-                        margin: const EdgeInsets.only(left: 10, right: 10),
-                        height: 150,
-                        decoration:
-                            const BoxDecoration(color: Color(0x62FFFFFF)),
-                        child: Column(
-                          children: [
-                            Container(
-                              foregroundDecoration: BoxDecoration(
-                                  border: Border.all(color: Colors.black)),
-                              height: 120,
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: AssetImage(
-                                      e["images"],
-                                    ),
-                                    fit: BoxFit.cover),
+                    (e) => Card(elevation: 10,
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(20),
+                        ),
+                        child: Container(
+                          margin: const EdgeInsets.only(left: 10, right: 10),
+                          height: 150,
+                          decoration:
+                              const BoxDecoration(color: Color(0x62FFFFFF)),
+                          child: Column(
+                            children: [
+                              Container(
+                                foregroundDecoration: BoxDecoration(
+                                    //border: Border.all(color: Colors.black)
+                                ),
+                                height: 120,
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                        e["images"],
+                                      ),
+                                      fit: BoxFit.cover),
+                                ),
                               ),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Container(
-                              height: 50,
-                              decoration: const BoxDecoration(),
-                              child: Text(
-                                e["name"],
-                                style: const TextStyle(
-                                    fontSize: 20, color: Colors.black),
-                                maxLines: 2,
-                                textAlign: TextAlign.center,
+                              const SizedBox(
+                                height: 10,
                               ),
-                            ),
-                          ],
+                              Container(
+                                height: 50,
+                                decoration: const BoxDecoration(),
+                                child: Text(
+                                  e["name"],
+                                  style: const TextStyle(
+                                      fontSize: 20, color: Colors.black),
+                                  maxLines: 2,
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -190,26 +195,62 @@ class ItemsPages extends StatelessWidget {
                 height: 20,
               ),
             ),
-            SliverGrid.count(childAspectRatio: 3/3,
+            SliverGrid.count(
+              childAspectRatio: 3 / 3,
               crossAxisCount: 2,
               children: sellingProducts
                   .map(
-                    (e) => MyWidget(
-                      images: Image.network(e["photo_url"]),
-                      label: Text(e["name"],
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20)),
-                      onpressed: () {},
-                      text: const Text("Add"),
-                      price:
-                          Text("${e["price"]}", style: const TextStyle(fontSize: 20)),
-                      quantity: Text("${e["quantity"]}",
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20)),
+                    (e) => Card(elevation: 10,
+                      child: MyWidget(
+                        images: Image.network(e["photo_url"]),
+                        label: Text(e["name"],
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20)),
+                        onpressed: () {},
+                        text: const Text("Add"),
+                        price: Text("${e["price"]}",
+                            style: const TextStyle(fontSize: 20)),
+                        quantity: Text("${e["quantity"]}",
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20)),
+                      ),
                     ),
                   )
                   .toList(),
             ),
+            const SliverToBoxAdapter(
+              child: SizedBox(
+                height: 20,
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Card(elevation: 10,
+                child: Container(height: 260,width: 250,
+                    decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image:
+                                AssetImage("assets/images/certify.png"),
+                            fit: BoxFit.cover))),
+              ),
+            ),
+
+            const SliverToBoxAdapter(
+              child: SizedBox(
+                height: 20,
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: Text(
+                "What Our Cutomer Say",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: SizedBox(
+                height: 20,
+              ),
+            ),
+            const SliverToBoxAdapter(child: Review(),),
           ],
         ),
       ),

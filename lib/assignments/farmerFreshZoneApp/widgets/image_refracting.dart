@@ -24,8 +24,8 @@ class MyWidget extends StatelessWidget {
     return Card(
       child: Container(
         decoration: BoxDecoration(
-          border:
-              Border.all(width: 1, strokeAlign: BorderSide.strokeAlignCenter),
+          // border:
+          //     Border.all(width: 1, strokeAlign: BorderSide.strokeAlignCenter),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

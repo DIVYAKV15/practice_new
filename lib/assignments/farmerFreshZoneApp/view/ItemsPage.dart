@@ -144,7 +144,7 @@ class ItemsPages extends StatelessWidget {
               children: sellingProducts
                   .map(
                     (e) => Card(
-                      elevation: 10,
+                      elevation: 12,
                       child: MyWidget(
                         images: Image.network(e["photo_url"]),
                         label: Text(e["name"],
@@ -162,21 +162,21 @@ class ItemsPages extends StatelessWidget {
                   )
                   .toList(),
             ),
-            const SliverToBoxAdapter(
-              child: SizedBox(
-                height: 20,
-              ),
-            ),
+            // const SliverToBoxAdapter(
+            //   child: SizedBox(
+            //     height: 10,
+            //   ),
+            // ),
             SliverToBoxAdapter(
               child: Card(
                 elevation: 10,
                 child: Container(
-                    height: 260,
+                    height: 340,
                     width: 250,
                     decoration: const BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage("assets/images/certify.png"),
-                            fit: BoxFit.cover))),
+                            fit: BoxFit.fill))),
               ),
             ),
             const SliverToBoxAdapter(
@@ -187,7 +187,7 @@ class ItemsPages extends StatelessWidget {
             const SliverToBoxAdapter(
               child: Text(
                 "What Our Cutomer Say",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
               ),
             ),
             const SliverToBoxAdapter(

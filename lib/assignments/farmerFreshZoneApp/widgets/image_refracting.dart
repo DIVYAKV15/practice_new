@@ -24,10 +24,10 @@ class MyWidget extends StatelessWidget {
     return Card(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            height: 100,
+            height: 80,
             decoration: BoxDecoration(),
             child: images,
           ),

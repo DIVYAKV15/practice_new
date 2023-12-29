@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:practice/assignments/farmerFreshZoneApp/model/selling_products_model.dart';
+import 'package:practice/assignments/farmerFreshZoneApp/widgets/image_refracting.dart';
 //import 'package:practice/assignments/farmerFreshZoneApp/widgets/category_page.dart';
 import 'package:practice/assignments/farmerFreshZoneApp/widgets/listview_buttons.dart';
 import 'package:practice/assignments/farmerFreshZoneApp/widgets/policy_widget.dart';
@@ -13,7 +15,7 @@ class ItemsPages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.green,
       body: SafeArea(
         child: CustomScrollView(
           scrollDirection: Axis.vertical,
@@ -117,48 +119,50 @@ class ItemsPages extends StatelessWidget {
               crossAxisSpacing: 5,
               crossAxisCount: 3,
               children: category
-                  .map((e) => ClipRRect(
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(20),
+                  .map(
+                    (e) => ClipRRect(
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(20),
+                      ),
+                      child: Container(
+                        margin: const EdgeInsets.only(left: 10, right: 10),
+                        height: 150,
+                        decoration:
+                            const BoxDecoration(color: Color(0x62FFFFFF)),
+                        child: Column(
+                          children: [
+                            Container(
+                              foregroundDecoration: BoxDecoration(
+                                  border: Border.all(color: Colors.black)),
+                              height: 120,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                      e["images"],
+                                    ),
+                                    fit: BoxFit.cover),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              height: 50,
+                              decoration: const BoxDecoration(),
+                              child: Text(
+                                e["name"],
+                                style: const TextStyle(
+                                    fontSize: 20, color: Colors.black),
+                                maxLines: 2,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ],
                         ),
-                        child: Container(
-                          margin: const EdgeInsets.only(left: 10, right: 10),
-                          height: 150,
-                          decoration:
-                          const BoxDecoration(color: Color(0x62FFFFFF)),
-                          child: Column(
-                            children: [
-                              Container(
-                                foregroundDecoration: BoxDecoration(
-                                    border: Border.all(color: Colors.black)),
-                                height: 120,
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                        e["images"],
-                                      ),
-                                      fit: BoxFit.cover),
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              Container(
-                                height: 50,
-                                decoration: const BoxDecoration(),
-                                child: Text(
-                                  e["name"],
-                                  style: const TextStyle(
-                                      fontSize: 20, color: Colors.black),
-                                  maxLines: 2,
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),)
+                      ),
+                    ),
+                  )
                   .toList(),
             ),
             SliverToBoxAdapter(
@@ -180,13 +184,32 @@ class ItemsPages extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
             ),
+            SliverGrid.count( crossAxisSpacing: 5,mainAxisSpacing: 5,childAspectRatio: 3/3,
+              crossAxisCount: 2,
+              children: sellingProducts
+                  .map(
+                    (e) => MyWidget(
+                      images: Image.network(e["photo_url"]),
+                      label: Text(e["name"],
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20)),
+                      onpressed: () {},
+                      text: const Text("Add"),
+                      price:
+                          Text("${e["price"]}", style: const TextStyle(fontSize: 20)),
+                      quantity: Text("${e["quantity"]}",
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20)),
+                    ),
+                  )
+                  .toList(),
+            ),
           ],
         ),
       ),
     );
   }
 }
-
 
 // ListTile(
 // leading: Icon(Icons.location_on),

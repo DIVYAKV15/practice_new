@@ -10,6 +10,7 @@ import 'package:practice/assignments/farmerFreshZoneApp/widgets/slider_page.dart
 
 import '../model/data_page.dart';
 import '../widgets/know_farmer_image.dart';
+import '../widgets/new_page.dart';
 
 class ItemsPages extends StatelessWidget {
   const ItemsPages({super.key});
@@ -123,7 +124,8 @@ class ItemsPages extends StatelessWidget {
               crossAxisCount: 3,
               children: category
                   .map(
-                    (e) => Card(elevation: 10,
+                    (e) => Card(
+                      elevation: 10,
                       child: ClipRRect(
                         borderRadius: const BorderRadius.all(
                           Radius.circular(20),
@@ -136,9 +138,9 @@ class ItemsPages extends StatelessWidget {
                           child: Column(
                             children: [
                               Container(
-                                foregroundDecoration: BoxDecoration(
+                                foregroundDecoration: const BoxDecoration(
                                     //border: Border.all(color: Colors.black)
-                                ),
+                                    ),
                                 height: 120,
                                 width: double.infinity,
                                 decoration: BoxDecoration(
@@ -200,7 +202,8 @@ class ItemsPages extends StatelessWidget {
               crossAxisCount: 2,
               children: sellingProducts
                   .map(
-                    (e) => Card(elevation: 10,
+                    (e) => Card(
+                      elevation: 10,
                       child: MyWidget(
                         images: Image.network(e["photo_url"]),
                         label: Text(e["name"],
@@ -224,16 +227,17 @@ class ItemsPages extends StatelessWidget {
               ),
             ),
             SliverToBoxAdapter(
-              child: Card(elevation: 10,
-                child: Container(height: 260,width: 250,
+              child: Card(
+                elevation: 10,
+                child: Container(
+                    height: 260,
+                    width: 250,
                     decoration: const BoxDecoration(
                         image: DecorationImage(
-                            image:
-                                AssetImage("assets/images/certify.png"),
+                            image: AssetImage("assets/images/certify.png"),
                             fit: BoxFit.cover))),
               ),
             ),
-
             const SliverToBoxAdapter(
               child: SizedBox(
                 height: 20,
@@ -250,13 +254,91 @@ class ItemsPages extends StatelessWidget {
                 height: 20,
               ),
             ),
-            const SliverToBoxAdapter(child: Review(),),
+            const SliverToBoxAdapter(
+              child: Review(),
+            ),
+            const SliverToBoxAdapter(
+              child: SizedBox(
+                height: 50,
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: News_page(),
+            ),
+             const SliverToBoxAdapter(
+              child:Card(margin: EdgeInsets.all(12),
+child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: [
+  Text("Get To Know Us",style: TextStyle(fontSize: 19,fontWeight: FontWeight.bold),),
+  SizedBox(
+    height: 20,
+  ),
+
+     IntrinsicHeight(
+       child: Row(mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+        Text("About US"),VerticalDivider(
+            color: Colors.black,
+            thickness:2 ,
+          ),
+          Text("Our Farmers"),
+          VerticalDivider(color: Colors.black,thickness: 2,),Text("  Blog"),
+
+    ],),
+     ),
+
+  SizedBox(
+    height: 20,
+  ),
+  Text("Useful Links",style: TextStyle(fontSize: 19,fontWeight: FontWeight.bold)),
+  SizedBox(
+    height: 20,
+  ),
+  IntrinsicHeight(
+    child: Row(children: [
+      Text("Privacy Policy"),VerticalDivider(
+        color: Colors.black,
+        thickness:2 ,
+      ),
+      Text("Return & Refund Policy"),
+      VerticalDivider(
+        color: Colors.black,
+        thickness:2 ,
+      ),
+    ],),
+  ),
+  Text("Terms & Condition",),
+  Wrap(children: [Image(
+    image: AssetImage(
+        "assets/icons/social-facebook-button-blue-icon.png"),
+    height: 40,
+    width: 50,
+  ),
+    Image(
+      image: AssetImage("assets/icons/Twitter-icon.png"),
+      height: 40,
+      width: 50,
+    ),
+    Image(
+      image: AssetImage("assets/icons/linkedin-icon.png"),
+      height: 40,
+      width: 50,
+    ),
+    Image(
+      image: AssetImage("assets/icons/web-github-icon.png"),
+      height: 40,
+      width: 50,
+    ),],),
+],),
+              ) ,
+            ),
           ],
         ),
       ),
     );
   }
 }
+
+
 
 // ListTile(
 // leading: Icon(Icons.location_on),

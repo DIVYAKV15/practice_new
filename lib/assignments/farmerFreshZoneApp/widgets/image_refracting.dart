@@ -22,31 +22,41 @@ class MyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            height: 80,
-            decoration: BoxDecoration(),
-            child: images,
-          ),
-          Container(child: label,),
-          Container(
-            child: price,),
-
-               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                 children: [Container(child: quantity,),
-                 ElevatedButton(
+      child: Container(
+        decoration: BoxDecoration(
+          border:
+              Border.all(width: 1, strokeAlign: BorderSide.strokeAlignCenter),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              height: 80,
+              child: images,
+            ),
+            Container(
+              child: label,
+            ),
+            Container(
+              child: price,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  child: quantity,
+                ),
+                ElevatedButton(
                     style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.green)),
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.green)),
                     onPressed: onpressed,
                     child: text)
-                    ],
-               ),
-
-
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

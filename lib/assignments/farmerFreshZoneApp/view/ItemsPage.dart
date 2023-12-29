@@ -185,7 +185,12 @@ class ItemsPages extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
             ),
-            SliverGrid.count( crossAxisSpacing: 5,mainAxisSpacing: 5,childAspectRatio: 3/3,
+            const SliverToBoxAdapter(
+              child: SizedBox(
+                height: 20,
+              ),
+            ),
+            SliverGrid.count(childAspectRatio: 3/3,
               crossAxisCount: 2,
               children: sellingProducts
                   .map(

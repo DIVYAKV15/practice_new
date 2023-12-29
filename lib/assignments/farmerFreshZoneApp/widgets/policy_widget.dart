@@ -7,7 +7,7 @@ class PolicyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          border: Border.all(
+          border: Border.all(width: 2,strokeAlign:BorderSide.strokeAlignOutside ,
         color: const Color(0xFFC8E6C9),
       )),
       height: 100,

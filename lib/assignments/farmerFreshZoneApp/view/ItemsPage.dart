@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:practice/assignments/farmerFreshZoneApp/model/selling_products_model.dart';
+import 'package:practice/assignments/farmerFreshZoneApp/widgets/color_widget.dart';
 import 'package:practice/assignments/farmerFreshZoneApp/widgets/image_refracting.dart';
 //import 'package:practice/assignments/farmerFreshZoneApp/widgets/category_page.dart';
 import 'package:practice/assignments/farmerFreshZoneApp/widgets/listview_buttons.dart';
@@ -15,8 +16,8 @@ class ItemsPages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
-      body: SafeArea(
+      //backgroundColor: Colors.white,
+      body: ColoredSafeArea(color: Colors.green,
         child: CustomScrollView(
           scrollDirection: Axis.vertical,
           slivers: [

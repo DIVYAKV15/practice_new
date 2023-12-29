@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:practice/assignments/farmerFreshZoneApp/model/selling_products_model.dart';
+import 'package:practice/assignments/farmerFreshZoneApp/widgets/bottom_bar.dart';
 import 'package:practice/assignments/farmerFreshZoneApp/widgets/color_widget.dart';
 import 'package:practice/assignments/farmerFreshZoneApp/widgets/image_refracting.dart';
 //import 'package:practice/assignments/farmerFreshZoneApp/widgets/category_page.dart';
@@ -9,6 +10,8 @@ import 'package:practice/assignments/farmerFreshZoneApp/widgets/review.dart';
 import 'package:practice/assignments/farmerFreshZoneApp/widgets/slider_page.dart';
 
 import '../model/data_page.dart';
+import '../widgets/cutom_app_bar.dart';
+import '../widgets/getToKnowUS.dart';
 import '../widgets/know_farmer_image.dart';
 import '../widgets/new_page.dart';
 
@@ -18,75 +21,13 @@ class ItemsPages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Colors.white,
-      body: ColoredSafeArea(
-        color: Colors.green,
+      backgroundColor: Colors.white,
+      body: ColoredSafeArea(color: Colors.green,
         child: CustomScrollView(
           scrollDirection: Axis.vertical,
           slivers: [
-            SliverToBoxAdapter(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(15),
-                    height: 80,
-                    decoration: const ShapeDecoration(
-                        color: Colors.green, shape: BeveledRectangleBorder()),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          "FARMERS FRESH ZONE",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ButtonStyle(
-                            elevation: MaterialStateProperty.all(0),
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.green),
-                          ),
-                          child: const Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Icon(Icons.location_on),
-                              SizedBox(
-                                width: 2,
-                              ),
-                              Text(
-                                "kochi",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 20),
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Icon(Icons.arrow_back_ios),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(15),
-                    height: 80,
-                    decoration: const ShapeDecoration(
-                        color: Colors.green, shape: BeveledRectangleBorder()),
-                    child: const SearchBar(
-                      shape: MaterialStatePropertyAll(
-                        RoundedRectangleBorder(),
-                      ),
-                      hintText: "Search for Vegetables ,fruits..",
-                      leading: Icon(Icons.search),
-                    ),
-                  ),
-                ],
-              ),
+            const SliverToBoxAdapter(
+              child: CustomAppBar(),
             ),
             SliverToBoxAdapter(
               child: SizedBox(
@@ -266,77 +207,27 @@ class ItemsPages extends StatelessWidget {
               child: News_page(),
             ),
              const SliverToBoxAdapter(
-              child:Card(margin: EdgeInsets.all(12),
-child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: [
-  Text("Get To Know Us",style: TextStyle(fontSize: 19,fontWeight: FontWeight.bold),),
-  SizedBox(
-    height: 20,
-  ),
-
-     IntrinsicHeight(
-       child: Row(mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-        Text("About US"),VerticalDivider(
-            color: Colors.black,
-            thickness:2 ,
-          ),
-          Text("Our Farmers"),
-          VerticalDivider(color: Colors.black,thickness: 2,),Text("  Blog"),
-
-    ],),
-     ),
-
-  SizedBox(
-    height: 20,
-  ),
-  Text("Useful Links",style: TextStyle(fontSize: 19,fontWeight: FontWeight.bold)),
-  SizedBox(
-    height: 20,
-  ),
-  IntrinsicHeight(
-    child: Row(children: [
-      Text("Privacy Policy"),VerticalDivider(
-        color: Colors.black,
-        thickness:2 ,
-      ),
-      Text("Return & Refund Policy"),
-      VerticalDivider(
-        color: Colors.black,
-        thickness:2 ,
-      ),
-    ],),
-  ),
-  Text("Terms & Condition",),
-  Wrap(children: [Image(
-    image: AssetImage(
-        "assets/icons/social-facebook-button-blue-icon.png"),
-    height: 40,
-    width: 50,
-  ),
-    Image(
-      image: AssetImage("assets/icons/Twitter-icon.png"),
-      height: 40,
-      width: 50,
-    ),
-    Image(
-      image: AssetImage("assets/icons/linkedin-icon.png"),
-      height: 40,
-      width: 50,
-    ),
-    Image(
-      image: AssetImage("assets/icons/web-github-icon.png"),
-      height: 40,
-      width: 50,
-    ),],),
-],),
-              ) ,
+              child:Get_to_know_us_page() ,
             ),
+            const SliverToBoxAdapter(
+              child: SizedBox(height: 100,
+                child: Card(color: Colors.green,
+                    child:
+                Center(child: Text("Copyright @2021 Farmers Fresh Zone.\n All Rights Reserved V 2.4.16",textAlign: TextAlign.center,))),
+              ),
+            )
           ],
         ),
       ),
+      bottomNavigationBar: const BottomBar(),
+
     );
   }
 }
+
+
+
+
 
 
 

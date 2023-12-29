@@ -18,7 +18,7 @@ class ColoredSafeArea extends StatelessWidget {
                   .of(context)
               .appBarTheme
               .backgroundColor,
-      child: SafeArea(
+      child: SafeArea(maintainBottomViewPadding:true ,top: true,bottom: true,
         child: Container(
           color: Theme.of(context).colorScheme.background,
           child: child,

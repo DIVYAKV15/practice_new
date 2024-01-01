@@ -8,10 +8,10 @@ class CustomExample extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(title:Text("Custom PopUp menu") ,actions: [
-        CustomPopupMenu(child: Icon(Icons.add_circle_outline,color: Colors.white,),
-            menuBuilder: (){
-
-            }, pressType: pressType)
+       // CustomPopupMenu(child: Icon(Icons.add_circle_outline,color: Colors.white,),
+            // menuBuilder: (){
+            //
+            // }, pressType: pressType)
       ],
       ),
     );

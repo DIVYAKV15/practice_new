@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:practice/ownPractice/ROute/screens/splash.dart';
-const _Save_the_key=user
+//const _Save_the_key=user
 void main() {
   runApp(Myapp());
 }

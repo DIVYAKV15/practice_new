@@ -20,12 +20,11 @@ class _FarmerSignUpPageState extends State<FarmerSignUpPage> {
       appBar: AppBar(
         title: const Text("REGISTRATION PAGE"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
+      body: Form(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextField(
+            TextFormField(
               controller: userName,
               decoration: const InputDecoration(
                   enabledBorder: OutlineInputBorder(
@@ -43,7 +42,7 @@ class _FarmerSignUpPageState extends State<FarmerSignUpPage> {
             const SizedBox(
               height: 20,
             ),
-            TextField(
+            TextFormField(
               controller: useridCntrl,
               decoration: const InputDecoration(
                   enabledBorder: OutlineInputBorder(

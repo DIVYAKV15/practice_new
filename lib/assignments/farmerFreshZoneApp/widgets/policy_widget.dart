@@ -5,11 +5,11 @@ class PolicyPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(elevation: 10,
+    return Card(elevation: 10,color: Colors.white,
       child: Container(
         decoration: BoxDecoration(
             border: Border.all(width: 2,strokeAlign:BorderSide.strokeAlignOutside ,
-          color: const Color(0xFFC8E6C9),
+          color: const  Color(0xFFC8E6C9)
         )),
         height: 100,
         width: MediaQuery.of(context).size.width,

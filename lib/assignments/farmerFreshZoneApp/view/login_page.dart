@@ -6,28 +6,24 @@ import 'package:practice/assignments/farmerFreshZoneApp/view/signup_page.dart';
 import '../widgets/loginappbar.dart';
 
 void main() {
-  runApp(const MaterialApp(
+  runApp( MaterialApp(
     home: FarmerLoginPage(),
   ));
 }
 
-class FarmerLoginPage extends StatefulWidget {
-  const FarmerLoginPage({super.key});
-
-  @override
-  State<FarmerLoginPage> createState() => _FarmerLoginPageState();
-}
-
-class _FarmerLoginPageState extends State<FarmerLoginPage> {
+class FarmerLoginPage extends StatelessWidget {
+   FarmerLoginPage({super.key});
 
 var phoneController=TextEditingController();
+
 var formKey=GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: CustomScrollView(slivers: [
-          SliverToBoxAdapter(child: LoginAppBar(),),
+          SliverToBoxAdapter(child: LoginAppBar(bgimage:const AssetImage("assets/images/login.jpg"),),),
            SliverToBoxAdapter(
              child: Form(
                child: Column(
@@ -35,16 +31,16 @@ var formKey=GlobalKey<FormState>();
                  crossAxisAlignment: CrossAxisAlignment.stretch,
                  children: [
                   // const LoginAppBar(),
-                   Padding(
-                     padding: const EdgeInsets.all(12.0),
-                     child: const Text("Log in/ Sign up",
+                   const Padding(
+                     padding: EdgeInsets.all(12.0),
+                     child: Text("Log in/ Sign up",
                          style: TextStyle(
                              fontSize: 20, fontWeight: FontWeight.bold)),
                    ),
 
-                   Padding(
-                     padding: const EdgeInsets.all(12.0),
-                     child: const Text(
+                   const Padding(
+                     padding: EdgeInsets.all(12.0),
+                     child: Text(
                        " Enter Your mobile number",
                        style: TextStyle(fontSize: 20),
                      ),
@@ -95,9 +91,9 @@ var formKey=GlobalKey<FormState>();
                                  fontWeight: FontWeight.bold, fontSize: 20))),
                    ),
 
-                   Padding(
-                     padding: const EdgeInsets.all(12.0),
-                     child: const Text(
+                   const Padding(
+                     padding: EdgeInsets.all(12.0),
+                     child: Text(
                        "Login with password",
                        style: TextStyle(
                            color: Color(0xFF33691E),

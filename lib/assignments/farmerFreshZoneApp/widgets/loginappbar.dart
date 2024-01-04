@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MaterialApp(
-    home: LoginAppBar(),
-  ));
-}
+
 
 class LoginAppBar extends StatelessWidget {
-  const LoginAppBar({super.key});
 
+AssetImage? bgimage;
+LoginAppBar({required this.bgimage});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,9 +25,9 @@ class LoginAppBar extends StatelessWidget {
                 style: TextStyle(fontSize: 45, color: Color(0xFF78909C))),
           ],
         ),
-        const Positioned(
+        Positioned(
           top: 150,
-          child: Image(image: AssetImage("assets/images/login.jpg")),
+          child: Image.asset("$bgimage"),
         )
       ]),
     );

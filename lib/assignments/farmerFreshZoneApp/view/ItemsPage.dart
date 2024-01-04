@@ -22,7 +22,8 @@ class ItemsPages extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: ColoredSafeArea(color: Colors.green,
+      body: ColoredSafeArea(
+        color: Colors.green,
         child: CustomScrollView(
           scrollDirection: Axis.vertical,
           slivers: [
@@ -206,30 +207,28 @@ class ItemsPages extends StatelessWidget {
             const SliverToBoxAdapter(
               child: News_page(),
             ),
-             const SliverToBoxAdapter(
-              child:Get_to_know_us_page() ,
+            const SliverToBoxAdapter(
+              child: Get_to_know_us_page(),
             ),
             const SliverToBoxAdapter(
-              child: SizedBox(height: 100,
-                child: Card(color: Colors.green,
-                    child:
-                Center(child: Text("Copyright @2021 Farmers Fresh Zone.\n All Rights Reserved V 2.4.16",textAlign: TextAlign.center,))),
+              child: SizedBox(
+                height: 100,
+                child: Card(
+                    color: Colors.green,
+                    child: Center(
+                        child: Text(
+                      "Copyright @2021 Farmers Fresh Zone.\n All Rights Reserved V 2.4.16",
+                      textAlign: TextAlign.center,
+                    ))),
               ),
             )
           ],
         ),
       ),
       bottomNavigationBar: const BottomBar(),
-
     );
   }
 }
-
-
-
-
-
-
 
 // ListTile(
 // leading: Icon(Icons.location_on),

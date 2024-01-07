@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -8,29 +7,35 @@ void main() {
   ));
 }
 
-class Hotelbooking extends StatefulWidget {
+class Hotelbooking extends StatelessWidget {
   const Hotelbooking({super.key});
 
   @override
-  State<Hotelbooking> createState() => _HotelbookingState();
-}
-
-class _HotelbookingState extends State<Hotelbooking> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.purpleAccent,
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: "Search"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.favorite_border), label: "Favourite"),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings")
+        ],
+      ),
       body: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Stack(
               children: [
-                Container(
+                SizedBox(
                     height: 300,
-                    child: const Image(
+                    child: Image(
                       image: AssetImage("assets/images/hotel.jpg"),
                       fit: BoxFit.fill,
                     )),
-                const Positioned(
+                Positioned(
                   top: 200,
                   left: 20,
                   child: Column(
@@ -46,8 +51,10 @@ class _HotelbookingState extends State<Hotelbooking> {
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Card(
-                            child: Text("8.4/85 reviews"),
+                          Card(color: Colors.grey,
+                            child: Text("8.4/85 reviews",style: TextStyle(
+
+                              color: Colors.white,),),
                           ),
                           SizedBox(
                             width: 230,
@@ -74,7 +81,7 @@ class _HotelbookingState extends State<Hotelbooking> {
                   children: [
                     RatingBarIndicator(
                       itemBuilder: (context, index) =>
-                          const Icon(Icons.star, color: Colors.deepPurple),
+                          const Icon(Icons.star, color: Colors.purpleAccent),
                       itemCount: 5,
                       itemSize: 30,
                       rating: 3.75,
@@ -95,7 +102,7 @@ class _HotelbookingState extends State<Hotelbooking> {
                   children: [
                     Text(
                       "\$200",
-                      style: TextStyle(color: Colors.deepPurple, fontSize: 25),
+                      style: TextStyle(color: Colors.purpleAccent, fontSize: 25),
                     ),
                     Text("/Per Night"),
                   ],
@@ -114,24 +121,44 @@ class _HotelbookingState extends State<Hotelbooking> {
             // ),
           ),
           SliverToBoxAdapter(
-            child:  Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: ElevatedButton(style:ButtonStyle(padding:MaterialStatePropertyAll(EdgeInsets.all(15),) ,backgroundColor: MaterialStateProperty.all(Colors.deepPurple,),) ,onPressed: () {}, child: const Text("BOOK NOW",style: TextStyle(color: Colors.white),)),
-            )),
-
+              child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: ElevatedButton(
+                style: ButtonStyle(
+                  padding: const MaterialStatePropertyAll(
+                    EdgeInsets.all(15),
+                  ),
+                  backgroundColor: MaterialStateProperty.all(
+                    Colors.purpleAccent,
+                  ),
+                ),
+                onPressed: () {},
+                child: const Text(
+                  "BOOK NOW",
+                  style: TextStyle(color: Colors.white),
+                )),
+          )),
           const SliverToBoxAdapter(
               child: Padding(
-                padding: EdgeInsets.all(12.0),
-                child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                Text("Ramada Plaza Palm Grove",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
-                SizedBox(height: 10,),
-                              Text(
-                    """With a fantastic view of the Arabian Sea, Ramada Plaza Palm Grove, Kochi, is a perfect destination for travellers. This hotel near Juhu Beach is located just 6.9 kilometres away from cochin airport.\n Ramada Plaza Palm Grove Hotel, one of the best 5-star hotels in Juhu provides easy access to multiple destinations in the city. As you stay in our luxurious Juhu beach hotel, enjoy umpteen facilities and a fantastic sea view
-Just a short drive from Bandra Kurla Complex, the city’s prime business area, our Juhu Beach Hotel in Mumbai is close to the Bollywood district, the Bombay Exhibition Centre, and the International and Domestic Airports. These factors make Ramada Plaza Palm Grove, Mumbai, one of the top 5-star hotels near Juhu Beach. Most of our accommodation options are sea view suites and hotel rooms near Juhu Beach offering a wonderful view at dusk and dawn. The facilities provided at Ramada Plaza Palm Grove, Mumbai range from private meeting rooms at the 24-hour business centre to state-of-the-art 5-star banquet halls near Juhu Beach""",maxLines: 15,style: TextStyle(fontSize: 15),)
-                            ],
-                          ),
-              )),
+            padding: EdgeInsets.all(12.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Ramada Plaza Palm Grove",
+                    style:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  """With a fantastic view of the Arabian Sea, Ramada Plaza Palm Grove, Kochi, is a perfect destination for travellers. This hotel near Juhu Beach is located just 6.9 kilometres away from cochin airport.\n Ramada Plaza Palm Grove Hotel, one of the best 5-star hotels in Juhu provides easy access to multiple destinations in the city. As you stay in our luxurious Juhu beach hotel, enjoy umpteen facilities and a fantastic sea view
+Just a short drive from Bandra Kurla Complex, the city’s prime business area, our Juhu Beach Hotel in Mumbai is close to the Bollywood district, the Bombay Exhibition Centre, and the International and Domestic Airports. These factors make Ramada Plaza Palm Grove, Mumbai, one of the top 5-star hotels near Juhu Beach. Most of our accommodation options are sea view suites and hotel rooms near Juhu Beach offering a wonderful view at dusk and dawn. The facilities provided at Ramada Plaza Palm Grove, Mumbai range from private meeting rooms at the 24-hour business centre to state-of-the-art 5-star banquet halls near Juhu Beach""",
+                  maxLines: 15,
+                  style: TextStyle(fontSize: 15),
+                )
+              ],
+            ),
+          )),
         ],
       ),
     );

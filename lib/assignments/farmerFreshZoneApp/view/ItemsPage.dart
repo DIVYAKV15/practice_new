@@ -60,7 +60,7 @@ class ItemsPages extends StatelessWidget {
               ),
             ),
             SliverGrid.count(
-              childAspectRatio: 2.1 / 3,
+              childAspectRatio: 2 / 3,
               mainAxisSpacing: 5,
               crossAxisSpacing: 5,
               crossAxisCount: 3,
@@ -94,7 +94,7 @@ class ItemsPages extends StatelessWidget {
                                 ),
                               ),
                               const SizedBox(
-                                height: 10,
+                                height: 5,
                               ),
                               Container(
                                 height: 50,
@@ -102,7 +102,7 @@ class ItemsPages extends StatelessWidget {
                                 child: Text(
                                   e["name"],
                                   style: const TextStyle(
-                                      fontSize: 20, color: Colors.black),
+                                      fontSize: 15, color: Colors.black),
                                   maxLines: 2,
                                   textAlign: TextAlign.center,
                                 ),

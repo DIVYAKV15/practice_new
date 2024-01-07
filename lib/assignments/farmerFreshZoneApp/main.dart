@@ -11,7 +11,7 @@ class MyFarmerApp extends StatelessWidget {
     // TODO: implement build
     return MaterialApp(
       home: ScreenSplash(),
-      theme: ThemeData(
+      theme: ThemeData(useMaterial3: false,
         //  primaryColor: Colors.green,
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal,primary: Colors.pinkAccent,background: Colors.white)),
     );

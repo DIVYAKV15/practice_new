@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
+//import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +15,6 @@ class HomeUI extends StatefulWidget {
 class _HomeUIState extends State<HomeUI> {
   //const HomeUI({super.key});
   int index = 0;
-
   var images = [
     "assets/images/TaylorSwift.jpg",
     "assets/images/samSmith.jpg",
@@ -23,12 +22,18 @@ class _HomeUIState extends State<HomeUI> {
     "assets/images/Dax.jpg",
     "assets/images/David .jpg"
   ];
-
+  var mainImages=["assets/images/images1.jpg",
+    "assets/images/images2.jpg",
+    "assets/images/image3.jpg",
+    "assets/images/images4.jpg",
+    "assets/images/images5.jpg",
+    "assets/images/images6.jpg",
+    "assets/images/image7.jpg",
+    "assets/images/images8.jpg"];
   var music_name = ["Hero", "Unholy", "Lift Me Up", "Depression", "I'm Good"];
-
   var singer_name = [
     "Taylor Swift",
-    "Sam Smith,Kim Petras,Rihanna,Dax,David Guetta & Bebe Rexha"
+    "Sam Smith","Kim Petras","RihannaDax","David Guetta"
   ];
 
   @override
@@ -43,50 +48,83 @@ class _HomeUIState extends State<HomeUI> {
         ),
         centerTitle: true,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            "Suggested playlists",
-            style: TextStyle(fontSize: 25, color: Colors.pink),
-          ),
-          CarouselSlider(
-            items: const [
-              Image(
-                image: AssetImage("assets/images/images5.jpg"),
+      body: CustomScrollView(
+        //shrinkWrap: true,
+        slivers: [
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 80,
+              child: Text(
+                ' Suggested   Playlist ',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30,color: Colors.pink),
               ),
-              Image(image: AssetImage("assets/images/images6.jpg")),
-              Image(image: AssetImage("assets/images/image7.jpg")),
-              Image(image: AssetImage("assets/images/images8.jpg")),
-            ],
-            options: CarouselOptions(
-                autoPlay: true,
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Container(
+              height: 200,
+              child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                aspectRatio: 10 / 9),
+                itemCount: mainImages.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: const EdgeInsets.all(3),
+                    width: 200,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(18),
+                      image: DecorationImage(
+                        image: AssetImage(mainImages[index]),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
           ),
-          const Text(
+          // playlist_carousel(),
+const SliverToBoxAdapter(
+  child:  Text(
             "Recommended for you",
-            style: TextStyle(fontSize: 25, color: Colors.pink),
+            style: TextStyle(fontSize: 30, color: Colors.pink),
           ),
-          const SizedBox(
+
+),
+          const SliverToBoxAdapter(child: SizedBox(
             height: 30,
-          ),
-          CustomScrollView(
-            slivers: [ SliverList(delegate: SliverChildListDelegate(List.generate(30, (index)=>ListTile(
-                    leading: const Image(
-                      image: AssetImage("images[index"),
-                      fit: BoxFit.cover,
-                      height: 50,
+          ),),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              childCount: singer_name.length,
+              (context, index) => SizedBox(
+                height: 100,
+                width: 300,
+                child: Card(color: Colors.black,
+                  child: ListTile(
+                    leading: Container(
+                      margin: const EdgeInsets.all(3),
                       width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(18),
+                        image: DecorationImage(
+                          image: AssetImage(images[index]),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
                     title: Text(
-                      music_name[index],
+                      music_name[index],maxLines: 2,
                       style: const TextStyle(fontSize: 25, color: Colors.pink),
                     ),
                     subtitle: Text(singer_name[index],
-                        style: const TextStyle(fontSize: 20, color: Colors.white)),
-                    trailing: const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        style:
+                            const TextStyle(fontSize: 20, color: Colors.white)),
+                    trailing:  const SizedBox(
+    width: 60,
+    child:
+    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Icon(
                           Icons.star_border,
@@ -98,44 +136,88 @@ class _HomeUIState extends State<HomeUI> {
                         ),
                       ],
                     ),
+                    ),
                   ),
                 ),
               ),
-              // ListView.builder(
-              //   itemBuilder: (context, index) => ListTile(tileColor: Colors.white,
-              //     leading: Image(
-              //       image: AssetImage(images[index]),
-              //       height: 30,
-              //       width: 30,
-              //     ),
-              //     title: Text(
-              //       music_name[index],
-              //       style: TextStyle(fontSize: 20, color: Colors.pink),
-              //     ),
-              //     subtitle: Text(singer_name[index],
-              //         style: TextStyle(fontSize: 15, color: Colors.white)),
-              //     trailing: SizedBox(
-              //       width: 60,
-              //       child: Row(
-              //         children: [
-              //           Icon(
-              //             Icons.star_border,
-              //             color: Colors.pink,
-              //           ),
-              //           Icon(
-              //             Icons.download,
-              //             color: Colors.pink,
-              //           ),
-              //         ],
-              //       ),
-              //     ),
-              //   ),
-              // ),
-              ),
-              ],
+            ),
           ),
         ],
       ),
     );
   }
 }
+
+// class playlist_carousel extends StatelessWidget {
+//   const playlist_carousel({
+//     super.key,
+//   });
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       height: 100,
+//       width: 100,
+//       child: Column(
+//         crossAxisAlignment: CrossAxisAlignment.start,
+//         children: [
+//           const Text(
+//             "Suggested playlists",
+//             style: TextStyle(fontSize: 25, color: Colors.pink),
+//           ),
+//           CarouselSlider(
+//             items: const [
+//               Image(
+//                 image: AssetImage("assets/images/images5.jpg"),
+//               ),
+//               Image(image: AssetImage("assets/images/images6.jpg")),
+//               Image(image: AssetImage("assets/images/image7.jpg")),
+//               Image(image: AssetImage("assets/images/images8.jpg")),
+//             ],
+//             options: CarouselOptions(
+//                 autoPlay: false,
+//                 scrollDirection: Axis.horizontal,
+//                 aspectRatio: 10 / 9),
+//           ),
+//           const Text(
+//             "Recommended for you",
+//             style: TextStyle(fontSize: 25, color: Colors.pink),
+//           ),
+//           const SizedBox(
+//             height: 30,
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+// ListView.builder(
+//   itemBuilder: (context, index) => ListTile(tileColor: Colors.white,
+//     leading: Image(
+//       image: AssetImage(images[index]),
+//       height: 30,
+//       width: 30,
+//     ),
+//     title: Text(
+//       music_name[index],
+//       style: TextStyle(fontSize: 20, color: Colors.pink),
+//     ),
+//     subtitle: Text(singer_name[index],
+//         style: TextStyle(fontSize: 15, color: Colors.white)),
+//     trailing: SizedBox(
+//       width: 60,
+//       child: Row(
+//         children: [
+//           Icon(
+//             Icons.star_border,
+//             color: Colors.pink,
+//           ),
+//           Icon(
+//             Icons.download,
+//             color: Colors.pink,
+//           ),
+//         ],
+//       ),
+//     ),
+//   ),
+// ),

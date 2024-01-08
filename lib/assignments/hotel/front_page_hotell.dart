@@ -1,9 +1,10 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:practice/assignments/farmerFreshZoneApp/widgets/color_widget.dart';
-import 'package:practice/assignments/farmerFreshZoneApp/widgets/slider_page.dart';
-import 'package:practice/assignments/hotel/model/hotel_data.dart';
+//import 'package:practice/assignments/farmerFreshZoneApp/widgets/slider_page.dart';
+//import 'package:practice/assignments/hotel/model/hotel_data.dart';
 import 'package:practice/assignments/hotel/slider.dart';
+
+import 'model/hotel_data.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -17,30 +18,24 @@ class MainPageHotel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
-      appBar: AppBar(),
-      body: ColoredSafeArea(
-        color: Colors.grey,
-        child: CustomScrollView(
-          slivers: [
-            const SliverToBoxAdapter(
-              child: Padding(
-                padding: EdgeInsets.only(top: 10, left: 10),
-                child: ListTile(
-                  title: Text(
-                    "HI",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text(
-                    "FInd Your Favourite Hotel",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  trailing: CircleAvatar(),
-                ),
+      body: CustomScrollView(
+       slivers:  [
+          SliverAppBar(
+            expandedHeight: 130,
+            floating: true,
+            title: const ListTile(
+              title: Text(
+                "HI",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
+              subtitle: Text(
+                "FInd Your Favourite Hotel",
+                style: TextStyle(fontSize: 20),
+              ),
+              trailing: CircleAvatar(),
             ),
-            SliverToBoxAdapter(
-              child: Container(
+            bottom: AppBar(
+              title: Container(
                 margin: const EdgeInsets.all(20),
                 child: const SearchBar(
                   padding: MaterialStatePropertyAll(
@@ -58,8 +53,56 @@ class MainPageHotel extends StatelessWidget {
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+          SliverToBoxAdapter(
+            child: Text(
+              ' Popular Hotels ',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
+            ),
+          ),
+          // SliverToBoxAdapter(child: SliderHotel()),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              hotel_data
+                  .map(
+                    (e) => Card(clipBehavior: Clip.antiAlias,
+                      color: Colors.white54,
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+                      margin: EdgeInsets.only(top: 10, left: 8, bottom: 550),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: 125,
+                            width: 175,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage(e["images"]),
+                                  fit: BoxFit.fill),
+                            ),
+                          ),
+                          Text("${e["name"]}"),
+                          Text("${e["star"]}"),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text("${e["price"]}"),
+                              SizedBox(
+                                width: 25,
+                              ),
+                              Text("${e["rating"]}"),
+                              Icon(Icons.star_border),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  )
+                  .toList(),
+            ),
+          ),
+        ],
       ),
     );
   }

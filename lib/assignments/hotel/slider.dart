@@ -13,45 +13,47 @@ class SliderHotel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: ListView(scrollDirection: Axis.horizontal,
-        children: hotel_data
-            .map(
-              (e) =>
-                  Card(
-                  color: Colors.white54,
-                  elevation: 2,
-                  margin: EdgeInsets.only(top: 10, left: 8, bottom: 550),
-                  child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: 125,
-                        width: 175,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage(e["images"]), fit: BoxFit.fill),
-                        ),
-                      ),
-                      Text("${e["name"]}"),
-                      Text("${e["star"]}"),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Text("${e["price"]}"),
-                          SizedBox(
-                            width: 25,
+    return  Container(
+      child: ListView(scrollDirection: Axis.horizontal,
+          children: hotel_data
+              .map(
+                (e) =>
+                    Card(clipBehavior: Clip.hardEdge,
+                    color: Colors.white54,
+                    elevation: 2,
+                    margin: EdgeInsets.only(top: 10, left: 8, bottom: 550),
+                    child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: 125,
+                          width: 175,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(e["images"]), fit: BoxFit.fill),
                           ),
-                          Text("${e["rating"]}"),
-                          Icon(Icons.star_border),
-                        ],
-                      )
-                    ],
+                        ),
+                        Text("${e["name"]}"),
+                        Text("${e["star"]}"),
+                        Row(
+                          //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text("${e["price"]}"),
+                            SizedBox(
+                              width: 25,
+                            ),
+                            Text("${e["rating"]}"),
+                            Icon(Icons.star_border),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
-                ),
-              ).toList(),
-            ),
+                ).toList(),
 
 
+
+      ),
     );
   }
 }
